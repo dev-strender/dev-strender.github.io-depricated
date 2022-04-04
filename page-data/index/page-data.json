@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-tsx",
     "path": "/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"dev-strender's Dev Story","description":"개발하면서 기록하고 싶은 내용을 기록한 공간입니다.","siteUrl":"https://dev-strender.github.io"}},"allMarkdownRemark":{"edges":[{"node":{"id":"d47aac1c-e4e2-58ca-a1da-540a4532a061","fields":{"slug":"/tech/intel-macbook-2-m1-macbook/"},"frontmatter":{"title":"인텔 맥북에서 M1 맥북으로의 이전기","summary":"인텔 맥북에서 M1 맥북으로 이전한 경험을 공유합니다.","date":"2022.03.30.","categories":["tech"]}}},{"node":{"id":"4838f73c-f1f9-5039-b676-a78b9979f9a8","fields":{"slug":"/intel-macbook-2-m1-macbook/"},"frontmatter":{"title":"인텔 맥북에서 M1 맥북으로의 이전기 (개발자 관점)","summary":"인텔 맥북에서 M1 맥북으로 이전한 경험을 공유합니다.","date":"2022.03.30.","categories":["tech"]}}}]}},"pageContext":{}},
+    "result": {"data":{"site":{"siteMetadata":{"title":"dev-strender's Dev Story","description":"개발하면서 기록하고 싶은 내용을 기록한 공간입니다.","siteUrl":"https://dev-strender.github.io"}},"allMarkdownRemark":{"edges":[{"node":{"id":"d47aac1c-e4e2-58ca-a1da-540a4532a061","fields":{"slug":"/tech/intel-macbook-2-m1-macbook/"},"frontmatter":{"title":"인텔 맥북에서 M1 맥북으로의 이전기 (개발자 관점)","summary":"인텔 맥북에서 M1 맥북으로 이전한 경험을 공유합니다.","date":"2022.03.30.","categories":["tech"]}}}]}},"pageContext":{}},
     "staticQueryHashes": []}
