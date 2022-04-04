@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-post-template-tsx",
-    "path": "/hello2/",
-    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<p>일을 잘게 나누어 보면 어떤 일이든 쉽게 처리할 수 있다.</p>\n<p>다니는</p>","frontmatter":{"title":"Hello2","summary":"GTD","date":"2020.07.29.","categories":["GTD"]}}}]}},"pageContext":{"slug":"/hello2/"}},
-    "staticQueryHashes": []}
