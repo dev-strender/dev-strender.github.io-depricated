@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-post-template-tsx",
+    "path": "/intel-macbook-2-m1-macbook/",
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<h1>배경 설명 (사건의 개요)</h1>\n<p>저는 현재 재택근무를 하는 회사에 다니고 있고, 재택근무를 하다보니 4k 모니터 2개 + 맥북프로 조합으로 사용하고 있었습니다.\n저의 뽑기운이 안좋은 것도 있겠지만, 이전부터 그래픽카드 쪽에 문제가 꽤나 많았던 편…</p>\n<h2>왜 이전하였는가?</h2>","frontmatter":{"title":"인텔 맥북에서 M1 맥북으로의 이전기","summary":"인텔 맥북에서 M1 맥북으로 이전한 경험을 공유합니다.","date":"2022.03.30.","categories":["tech"]}}}]}},"pageContext":{"slug":"/intel-macbook-2-m1-macbook/"}},
+    "staticQueryHashes": []}
