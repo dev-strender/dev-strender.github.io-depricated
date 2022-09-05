@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-post-template-tsx",
+    "path": "/tech/recommend-vscode-extensions/",
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<h2>Extension 설치관련 정리</h2>","frontmatter":{"title":"좋아하는 vscode extension & 각종 설정","summary":"visual studio code를 사용하면서 추천하는 extension을 정리합니다.","date":"2022.04.24.","categories":["tech"]}}}]}},"pageContext":{"slug":"/tech/recommend-vscode-extensions/"}},
+    "staticQueryHashes": []}
