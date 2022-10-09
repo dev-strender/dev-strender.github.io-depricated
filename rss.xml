@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of dev-strender's blog]]></title><description><![CDATA[dev-strender 의 블로그입니다.]]></description><link>https://dev-strender.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 09 Oct 2022 11:49:48 GMT</lastBuildDate><item><title><![CDATA[도서 리뷰 - 일의 격]]></title><description><![CDATA[…]]></description><link>https://dev-strender.github.io/value-of-work/</link><guid isPermaLink="false">https://dev-strender.github.io/value-of-work/</guid><pubDate>Fri, 13 May 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;총평&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of dev-strender's blog]]></title><description><![CDATA[dev-strender 의 블로그입니다.]]></description><link>https://dev-strender.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 09 Oct 2022 12:04:36 GMT</lastBuildDate><item><title><![CDATA[Earthly를 이용하여 도커 멀티 플랫폼 이미지 만들기]]></title><description><![CDATA[개요 요즘 시대에 개발자들에게 컨테이너를 활용(Docker)한 개발을 하는 것은 너무 보편화 되어있다. 또한, 개발자라면 맥북을 많이 사용하고, 맥북을 사용한다면 M1, M2 등의 arm…]]></description><link>https://dev-strender.github.io/earthly-multiplatform-build/</link><guid isPermaLink="false">https://dev-strender.github.io/earthly-multiplatform-build/</guid><pubDate>Thu, 29 Sep 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;개요&lt;/h2&gt;
+&lt;p&gt;요즘 시대에 개발자들에게 컨테이너를 활용(Docker)한 개발을 하는 것은 너무 보편화 되어있다. 또한, 개발자라면 맥북을 많이 사용하고, 맥북을 사용한다면 M1, M2 등의 arm 아키텍쳐 기반의 운영체제를 사용하는 것이 강제가 되었다. 하지만, 대부분의 서비스는 짱짱한 서버에서 배포가 되는 편이며, 해당 서버는 대부분 x86 또는 x64 기반으로 구축되어 있을 것이다.&lt;/p&gt;
+&lt;p&gt;핵심은 로컬 개발환경과 배포되는 개발환경이 달라, 도커 이미지를 빌드할 때, 멀티플랫폼 빌드가 선택이 아닌 필수가 되었다.&lt;/p&gt;
+&lt;p&gt;물론, 현재 M1 맥북에서도 x64 기반 도커 이미지를 띄울 수는 있지만 아직 최적화가 덜 되어서 그런지, 개발 작업물을 확인할 때 다소 버벅이는 점이 발생하게 된다.&lt;/p&gt;
+&lt;p&gt;물론 이를 해결하기 위해서, 도커에서도 자체적으로 docker build 가 아닌 docker buildx 를 통해서 멀티 플랫폼 빌드를 가능하게 하였다. 필자도 물론 사용해보았고, 기능적으로 부족한 점은 없었으나, 기존 간단했던 도커 빌드 커맨드 대비 다소 명령어가 복잡해지는 경향이 있었고, 특정 이미지는 빌드가 진행이 되지 않는 현상도 겪었다. (x64 환경에서 node arm 빌드를 하였더니, 몇시간이 걸리길래 누가이기나 해보자 하고 기다렸다가 싸움에서 지고(?) 취소하였다.)&lt;/p&gt;
+&lt;h2&gt;Earthly&lt;/h2&gt;
+&lt;p&gt;그래서 알아본 대안중 하나가 바로 Earthly(&lt;a href=&quot;https://docs.earthly.dev/&quot;&gt;https://docs.earthly.dev/&lt;/a&gt;) 라는 서비스? 이다. Earthly는 사실 CI(Continuous Integration)를 단순화하기 위해 등장한 서비스이다.&lt;/p&gt;
+&lt;p&gt;일반적으로 도커 컨테이너 기반으로 CI를 한다고 하면, 도커 파일을 작성하여, 해당 내용 기반으로 도커 이미지를 만들고, 그 이미지를 만드는 명령어는 Makefile로 작성되어있고, Integration Test 를 수행하는 코드는 Bash로 작성되어있는 등 기술적으로 엄청 복잡하지는 않지만, 로직이 여러 파일로 분산되어있을 가능성이 높다.&lt;/p&gt;
+&lt;p&gt;해당 과정을 간단하게 하는 도구이지만, Earthly 서비스에서 제공하는 Earthfile 이라는 신박한 개념이 좋아, 필자는 이것으로 멀티플랫폼 이미지를 만들곤 한다.&lt;/p&gt;
+&lt;h3&gt;Earthly - 설치&lt;/h3&gt;
+&lt;p&gt;설치가이드는 &lt;a href=&quot;https://earthly.dev/get-earthly&quot;&gt;https://earthly.dev/get-earthly&lt;/a&gt; 여기에 친절하게 작성되어있다. 맥북은 역시 homebrew가 짱이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;brew &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; earthly/earthly/earthly &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; earthly bootstrap&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Earthfile 작성&lt;/h3&gt;
+&lt;p&gt;이제 EarthFile을 작성하는 방법을 간단하게 적어보겠다. Earthfile은 &lt;strong&gt;Dockerfile + Makefile&lt;/strong&gt; 처럼 생겨서, CI를 하는데 필요한 대부분의 명령어를 지원하고 있다. 아래에 간단한 주석과 함께 go project 멀티플랫폼 빌드하는 예시를 들어보겠다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;VERSION 0.6
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; golang:1.18-alpine&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /golang&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; APP_IMAGE=earth-tutorial&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; IMAGE_NAME=earth-tutorial&lt;/span&gt;
+
+build:
+  &lt;span class=&quot;token comment&quot;&gt;# 빌드하는 컨테이너 내부에 소스코드를 원하는 위치에 옮겨 폴더 구조를 잡는다. &lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; main.go .&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# go build 아티팩트를 build/go-example 로 저장한다.&lt;/span&gt;
+  &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; go build -o build/go-example main.go&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# 아티팩트를 저장한다.&lt;/span&gt;
+  SAVE ARTIFACT build/${APP_NAME} /${APP_NAME}
+
+image:
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; alpine:3&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; +build/&lt;span class=&quot;token variable&quot;&gt;${APP_NAME}&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./${APP_NAME}&quot;&lt;/span&gt;&lt;/span&gt;
+    SAVE IMAGE --push ${IMAGE_NAME}:latest
+
+buildx:
+    BUILD --platform=linux/amd64 \\
+        --platform=linux/arm64 \\
+        +image&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;해당 파일 하나만 작성되어있고, &lt;code class=&quot;language-text&quot;&gt;earthly +buildx&lt;/code&gt; 커맨드를 입력해주면 큰 작업 없이 빌드하는 과정, 이미지를 제작해주는 과정 전부 알아서해주게 된다.&lt;/p&gt;
+&lt;p&gt;Makefile과 Dockerfile을 작성해보신 분이라면, 아래 코드가 굉장히 익숙하실 것이다. 조금 생소한 부분이라면, &lt;code class=&quot;language-text&quot;&gt;COPY +build/${APP\_NAME}&lt;/code&gt; 이부분일텐데, 이건 earthly에서 제공하는 특별한 문법이며, 각 command에서 나온 결과물들을 다른 command로 넘길 수 있게 해주는 것이다.&lt;/p&gt;
+&lt;p&gt;image 부분이 조금 복잡하다면, 그냥 바로 이미지를 만들어버릴 수도 있다. 아래는 실제 python django 프로젝트 멀티플랫폼 빌드하는 방법을 적어본다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;VERSION 0.6
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; IMAGE_NAME=django-project&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; IMAGE_TAG=latest&lt;/span&gt;
+
+build:
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3.8.1&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /app&lt;/span&gt;
+
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; apt-get update&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; apt-get install -y mariadb-client-10.3&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install --no-cache-dir -U pip&lt;/span&gt;
+
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . .&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install --no-cache-dir -r requirements.txt&lt;/span&gt;
+
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; MODE&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; DJANGO_SUPERUSER_PASSWORD&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; DB_HOST&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; DB_PORT&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; DB_NAME&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; DB_USER&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; DB_PASSWORD&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; SECRET_KEY&lt;/span&gt;
+
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; MODE=&lt;span class=&quot;token variable&quot;&gt;$MODE&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; DJANGO_SUPERUSER_PASSWORD=&lt;span class=&quot;token variable&quot;&gt;$DJANGO_SUPERUSER_PASSWORD&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; DB_HOST=&lt;span class=&quot;token variable&quot;&gt;$DB_HOST&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; DB_PORT=&lt;span class=&quot;token variable&quot;&gt;$DB_PORT&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; DB_NAME=&lt;span class=&quot;token variable&quot;&gt;$DB_NAME&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; DB_USER=&lt;span class=&quot;token variable&quot;&gt;$DB_USER&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; DB_PASSWORD=&lt;span class=&quot;token variable&quot;&gt;$DB_PASSWORD&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; SECRET_KEY=&lt;span class=&quot;token variable&quot;&gt;$SECRET_KEY&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;python&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;/app/manage.py&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;runserver&quot;&lt;/span&gt;]&lt;/span&gt;
+
+    SAVE IMAGE --push ${IMAGE_NAME}:${IMAGE_TAG}
+
+buildx:
+    BUILD --platform linux/amd64 \\
+          --platform linux/arm64 \\
+              +build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 예시와는 조금 다르게, 이번에는 build 커맨드 안에서 바로 &lt;code class=&quot;language-text&quot;&gt;SAVE IMAGE&lt;/code&gt; 를 통해 이미지를 바로 저장하였다.&lt;/p&gt;
+&lt;h2&gt;요약&lt;/h2&gt;
+&lt;p&gt;일일이 쉘 스크립트로 작업 하나하나를 작성하는 것(docker_build.sh, docker_run.sh)보다 Makefile을 선호하는 사람으로써, Earthfile은 친숙하게 다가와 선호할 수 있었다. 추가로 멀티플랫폼 기능도 쉽게 붙이고, 개인적으로는 docker buildx 보다 나은 경험을 제공하였기에 당분간은 Earthfile을 적극적으로 사용하지 않을까 싶다.&lt;/p&gt;
+&lt;h2&gt;참고&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.earthly.dev/&quot;&gt;https://docs.earthly.dev/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[도서 리뷰 - 일의 격]]></title><description><![CDATA[…]]></description><link>https://dev-strender.github.io/value-of-work/</link><guid isPermaLink="false">https://dev-strender.github.io/value-of-work/</guid><pubDate>Fri, 13 May 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;총평&lt;/h2&gt;
 &lt;p&gt;시기가 개인적으로 조금 힘든 시기일 때 읽어서 그런지는 모르겠으나, 전반적으로 책을 읽으면서 위로가 많이 되었던 책이었습니다.
 요약한 내용을 보아도 책이 주는 감동을 주지 못하네요. 일에 욕심이 많으신 분들은 한번쯤 읽어보시는 것을 추천드립니다. 👍👍👍&lt;/p&gt;
 &lt;h2&gt;조직을 성공으로 이끄는 리더십의 발견&lt;/h2&gt;
