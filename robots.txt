@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://dev-strender.github.io/sitemap-pages.xml
+Host: https://dev-strender.github.io
