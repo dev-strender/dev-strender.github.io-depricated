@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of dev-strender's blog]]></title><description><![CDATA[dev-strender 의 블로그입니다.]]></description><link>https://dev-strender.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 20 Nov 2022 05:40:01 GMT</lastBuildDate><item><title><![CDATA[저만의 눈겅관 관리법]]></title><description><![CDATA[개요 저는 어릴때부터 눈하나는 좋았는데, 고등학교 들어가면서…]]></description><link>https://dev-strender.github.io/mac-dark-theme/</link><guid isPermaLink="false">https://dev-strender.github.io/mac-dark-theme/</guid><pubDate>Thu, 24 Nov 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;개요&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of dev-strender's blog]]></title><description><![CDATA[dev-strender 의 블로그입니다.]]></description><link>https://dev-strender.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 26 Nov 2022 08:10:30 GMT</lastBuildDate><item><title><![CDATA[저만의 눈겅관 관리법]]></title><description><![CDATA[개요 저는 어릴때부터 눈하나는 좋았는데, 고등학교 들어가면서…]]></description><link>https://dev-strender.github.io/mac-dark-theme/</link><guid isPermaLink="false">https://dev-strender.github.io/mac-dark-theme/</guid><pubDate>Thu, 24 Nov 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;개요&lt;/h2&gt;
 &lt;p&gt;저는 어릴때부터 눈하나는 좋았는데, 고등학교 들어가면서 1차적으로 눈이 나빠진 케이스입니다. 아마 이때는 책을 너무 가까이에 읽어서? 그랬던것 같아요.
 대부분의 사람들은 몸의 성장이 끝나면서 안구의 성장도 멈춘다고 하는데요, 저는 건강검진을 받아보면 해마다 시력이 조금씩 더 나빠지는 것을 느끼고 싶습니다.&lt;/p&gt;
 &lt;p&gt;시력 자체가 나빠지는 것도 문제이지만 가끔 프로젝트 일정으로 인해 밤을 새거나 하면 눈의 염증이 쉽게 생기는 편이라, 정말 힘들때는 눈에 스테로이드 안약을 넣어서 해결하고는 하는데, 많이 사용하면 녹내장이 올 확률과 시기가 빨라지기에 대부분의 시간을 고통을 참으며 보내게 되네요🥲&lt;/p&gt;
@@ -9,7 +9,42 @@
 &lt;p&gt;그러면 &lt;strong&gt;다크모드는 이렇게 눈에 좋지 않은데 왜 등장하였을까?&lt;/strong&gt; 라는 답변으로는 배터리를 절약하고, 블루라이트를 줄여주는 효과가 있다고 합니다.
 다크모드가 공식적으로 등장하고 난 이후 어느 한 설문조사에 따르면, 80% 이상의 개발자분들이 다크모드가 생겨난 이후로 줄곧 사용해오셨다고 하는데요,(그래서 아마 여러 코드에디터도 기본으로 어두운 테마를 제공하는 것이겠죠?) 다들 눈건강은 괜찮으신지...도 궁금하네요.&lt;/p&gt;
 &lt;p&gt;다크모드 자체가 주는 장단점은 확실히 있으나, 근시와 난시를 유발하는 점이 저에게는 조금 더 체감이 되어서 우선 가장 많이 사용하는 코드 에디터와, 터미널만 먼저 라이트 모드로 바꾸었습니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./ligntmode-vscode.png&quot; alt=&quot;lightmode-vscode&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;margin-bottom: 16px;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9d4c3cbeb89c47f021471cc18d5232d8/69d05/lightmode-vscode.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.94117647058824%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABoElEQVR42nVT2ZLiMAzk/z9u5wCGADnwkctxnMQJR81Lr6WsKaZq56FLRhKt1pFN62ecrIIcGnSDh6w9tJlh3RWmX/6L7pcY+TftMCIxAnpoYccFuWhxzEoI3aGQLS7arFYZyNLyO1rKIT9B124lbNyA2vVYHg8M/o7sUuOUaU56/dMrUS4a9omy44KxGKncSNtgWq64Pb7hphsHj6kKKhXSokSSShxOgn1UiPzJWa456frOCsmErZ2xUaZGMzsm7P01kFR4+zzgnJcrwT+iCCIgPGM5WcmdrS2PLcqpwz0Q2nFGoR32uYVqplDRc9Wm84zaTD9+v/qIjAlFHZQ4CX+7oZ+uyKUJbZZBYRWqVk+lqxLFSqKNUFXPxDzDiw6JvUC/eN4yzZBa2icFW5ofvXdJzuTRR7OMy4lXwDPUNmx0bLDcH7DTeja7Q46P/Rnbr4zJ/nwkeNse2f+5T/G+PeHreOEcIqdCNHsmFOH+0l6thEFhIc1z6JRMKqglOh8CbTOCbo9iZAnccuEc5FjzUozzqNrpx9Cp6m9fTATlxLy/mYIsZk/qlFEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;lightmode-vscode&quot;
+        title=&quot;lightmode-vscode&quot;
+        src=&quot;/static/9d4c3cbeb89c47f021471cc18d5232d8/ca1dc/lightmode-vscode.png&quot;
+        srcset=&quot;/static/9d4c3cbeb89c47f021471cc18d5232d8/e7570/lightmode-vscode.png 170w,
+/static/9d4c3cbeb89c47f021471cc18d5232d8/f46e7/lightmode-vscode.png 340w,
+/static/9d4c3cbeb89c47f021471cc18d5232d8/ca1dc/lightmode-vscode.png 680w,
+/static/9d4c3cbeb89c47f021471cc18d5232d8/02d09/lightmode-vscode.png 1020w,
+/static/9d4c3cbeb89c47f021471cc18d5232d8/9d567/lightmode-vscode.png 1360w,
+/static/9d4c3cbeb89c47f021471cc18d5232d8/69d05/lightmode-vscode.png 2804w&quot;
+        sizes=&quot;(max-width: 680px) 100vw, 680px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;lightmode-vscode&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;사실 바꾸고 며칠 되지 않아서 확 체감이 될지는 모르겠지만, 체감이 되면 해당 글을 업데이트하도록 하겠습니다.&lt;/p&gt;
 &lt;h2&gt;배율 높이기&lt;/h2&gt;
 &lt;p&gt;저는 일반적으로 가로로 모니터를 쓰는 기준 코드에디터에서 80줄 이상 보이는게 좋아 글자를 작게 설정하고 사용하는 편이었는데요, 너무 작은 글자를 오래 읽으면 눈이 쉽게 피로해진다고 하여, 글자 크기를 기존보다는 조금 더 키워서 사용하고 있습니다.&lt;/p&gt;
